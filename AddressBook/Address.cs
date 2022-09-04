@@ -44,12 +44,12 @@ namespace AddressBook
                 Console.WriteLine($"Email - {data.email}");
             }
         }
-        public void edit(String Fname, String Sname) //Editing a contact
+        public void edit(String Fname, String Lname) //Editing a contact
         {
             Contacts contact = new Contacts();
             foreach (var person in add_book)
             {
-                if (person.first_name.Equals(Fname) && person.last_name.Equals(Sname))
+                if (person.first_name.Equals(Fname) && person.last_name.Equals(Lname))
                 {
                     Console.WriteLine("Edit and confirm the details now -");
                     Console.WriteLine("Enter your first name");
@@ -70,6 +70,24 @@ namespace AddressBook
                     person.email = Console.ReadLine();
                     Console.WriteLine();
                 }
+            }
+        }
+        public void delete(String Fname, String Lname)  //deleting a contact
+        {
+            Contacts contact = new Contacts();
+            bool found = false;
+            foreach (var person in add_book)
+            {
+                if (person.first_name.Equals(Fname) && person.last_name.Equals(Lname))
+                {
+                    found = true;
+                    add_book.Remove(person);
+                    Console.WriteLine("Contact deleted");
+                }
+            }
+            if (found == false)
+            {
+                Console.WriteLine("Contact not found");
             }
         }
     }
