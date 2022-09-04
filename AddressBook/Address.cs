@@ -44,5 +44,33 @@ namespace AddressBook
                 Console.WriteLine($"Email - {data.email}");
             }
         }
+        public void edit(String Fname, String Sname) //Editing a contact
+        {
+            Contacts contact = new Contacts();
+            foreach (var person in add_book)
+            {
+                if (person.first_name.Equals(Fname) && person.last_name.Equals(Sname))
+                {
+                    Console.WriteLine("Edit and confirm the details now -");
+                    Console.WriteLine("Enter your first name");
+                    person.first_name = Console.ReadLine();
+                    Console.WriteLine("Enter your second name");
+                    person.last_name = Console.ReadLine();
+                    Console.WriteLine("Enter your address");
+                    person.address = Console.ReadLine();
+                    Console.WriteLine("Enter your city");
+                    person.city = Console.ReadLine();
+                    Console.WriteLine("Enter your state");
+                    person.state = Console.ReadLine();
+                    Console.WriteLine("Enter your zip code");
+                    person.zip = Convert.ToInt64(Console.ReadLine());
+                    Console.WriteLine("Enter your phone number");
+                    person.phone_no = Convert.ToInt64(Console.ReadLine());
+                    Console.WriteLine("Enter your email");
+                    person.email = Console.ReadLine();
+                    Console.WriteLine();
+                }
+            }
+        }
     }
 }
